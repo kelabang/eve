@@ -1,0 +1,58 @@
+body{
+  height: 100vh;
+}
+.profile{
+  height: inherit;
+}
+.img-profile {
+  width: 100%;
+  height: auto;
+}
+.head {
+  height: 5vh;
+}
+.body {
+  height: 80vh;
+}
+.container-chat {
+  position:relative;
+  height: inherit;
+  overflow-y: hidden;
+}
+.chat-absolute{
+  top:105px;
+  position: absolute;
+  width:100%;
+  min-height: 300px;
+  background-color: #BBDEFB;
+
+}
+.chat-relative {
+  position:relative;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+.chat-input{
+  top:50;
+  width:100%;
+  position: absolute;
+}
+.item-chat {
+  background-color: #2196F3;
+  margin-bottom:5px;
+  padding: 5px;
+}
+.online {
+  height:inherit;
+  overflow-y: hidden;
+}
+.online-list{
+  padding-right:8px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.kirim {
+  width: 100%;
+  text-align:center;
+}
