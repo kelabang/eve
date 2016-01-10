@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node run mygit-dev",
+    "gen": "node run mygit-gen",
+    "mygit-dev": "http-serve -p 8080  ./starters/mygit",
+    "mygit-gen": "webpack ./starters/mygit/components/app.js bundle.js"
+
   },
   "repository": {
     "type": "git",
@@ -15,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/kelabang/eve/issues"
   },
-  "homepage": "https://github.com/kelabang/eve#readme"
+  "homepage": "https://github.com/kelabang/eve#readme",
+  "devDependencies": {
+    "webpack": "^1.12.10",
+    "webpack-dev-server": "^1.14.0"
+  }
 }

@@ -1,7 +1,14 @@
 body{
-  height: 100vh;
+  height: auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.container{
+  height: auto;
+  background-color: ;
 }
 .profile{
+  background-color: ;
   height: inherit;
 }
 .img-profile {
@@ -9,34 +16,26 @@ body{
   height: auto;
 }
 .head {
-  height: 5vh;
+  height:30px;
 }
 .body {
-  height: 80vh;
+  max-height: 600px;
+  height: auto;
+  background-color: ;
 }
 .container-chat {
-  position:relative;
-  height: inherit;
-  overflow-y: hidden;
-}
-.chat-absolute{
-  top:105px;
-  position: absolute;
-  width:100%;
-  min-height: 300px;
-  background-color: #BBDEFB;
-
-}
-.chat-relative {
-  position:relative;
-  overflow-y: auto;
-  width: 100%;
-  height: 100%;
+  background-color:;
+  height: 400px;
 }
 .chat-input{
-  top:50;
+
   width:100%;
-  position: absolute;
+
+}
+.list-chat {
+  background-color: ;
+  overflow: auto;
+
 }
 .item-chat {
   background-color: #2196F3;
@@ -44,13 +43,17 @@ body{
   padding: 5px;
 }
 .online {
-  height:inherit;
-  overflow-y: hidden;
+  background:;
+
 }
 .online-list{
-  padding-right:8px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  background-color: ;
+  height: 500px;
+  overflow: auto;
+}
+.people {
+  background-color: ;
+  padding:3px;
 }
 .kirim {
   width: 100%;
