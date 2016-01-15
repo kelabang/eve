@@ -1,0 +1,19 @@
+[
+  {
+    "id": "123",
+    "message": "ini gw",
+    "user_id": "234"
+  },
+  {
+    "id": "123",
+    "message": "ini gw",
+    "user_id": "234",
+    "others": true
+  },
+  {
+    "id": "123",
+    "message": "ini gw",
+    "user_id": "234",
+    "others": true
+  }
+]

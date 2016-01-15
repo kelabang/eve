@@ -22,12 +22,18 @@ module.exports = {
       'chatitem': resolveRoot+'/components/chatitem/chatitem',
       'chatinput': resolveRoot+'/components/chatinput/chatinput',
       'columns': resolveRoot+'/components/columns/columns',
-      'subheader': resolveRoot+'/components/subheader/subheader'
+      'subheader': resolveRoot+'/components/subheader/subheader',
+
+      // service components
+      'sajax': resolveRoot+'/service/sajax',
+      'smessage': resolveRoot+'/service/smessage',
+      'stransport': resolveRoot+'/service/stransport'
     }
   },
   externals: {
     'react': 'React',
-    'react-dom': 'ReactDOM'
+    'react-dom': 'ReactDOM',
+    'jquery': '$'
   },
   modulesDirectories: [
     'bower_components'

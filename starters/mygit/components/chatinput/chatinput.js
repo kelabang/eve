@@ -1,14 +1,31 @@
 var React = require('react');
 var Columns = require('columns');
-
+var $ = require('jquery');
+var smessage = require('smessage');
 var ChatInput = React.createClass({
+  sendMessage: function (e) {
+    e.preventDefault(); // stop reloading page
+    var form = e.target;
+    var message = {
+      "id": "123",
+      "message": form.querySelector('[name="message"]').value,
+      "user_id": "234",
+      "others": true
+    }
+    console.log('this.props');
+    console.log(this.props);
+    this.props._pushMessage(message);
+  },
   render: function () {
+    var self = this;
     var inputbox = React.createElement("input", {
       "type": "text",
-      "className": "u-full-width",
+      "className": "u-full-width data-message",
+      "name": "message",
       "placeholder": "ngobrol lah ..."
     });
     var inputbutton = React.createElement("input", {
+      // "onClick": self.sendMessage,
       "className": "button-primary kirim",
       "type": "submit",
       "value": "kirim"
@@ -28,9 +45,12 @@ var ChatInput = React.createClass({
     var form = React.createElement("form", {
       'style': {
         'margin': '0px'
-      }
+      },
+      'onSubmit': self.sendMessage
     }, wrap);
-    return React.createElement("div", {"className": "row chat-input"},
+    return React.createElement("div", {
+      "className": "row chat-input"
+    },
       form
     );
   }
