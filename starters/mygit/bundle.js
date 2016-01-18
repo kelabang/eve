@@ -56,7 +56,7 @@
 	    React.createElement(Container));
 	  }
 	});
-	console.log('>> ready')
+	console.log('>> ready');
 	ReactDOM.render(
 	  React.createElement(App, null),
 	  document.getElementById('app')
@@ -104,7 +104,7 @@
 	var React = __webpack_require__(1);
 	var ContainerProfile = __webpack_require__(5);
 	var ContainerChat = __webpack_require__(8);
-	var ContainerOnline = __webpack_require__(17);
+	var ContainerOnline = __webpack_require__(19);
 	var Container = React.createClass({
 	  render: function () {
 	    return React.createElement("div", {"className": "row body container-cmp"},
@@ -184,8 +184,9 @@
 	var React = __webpack_require__(1);
 	var Subheader = __webpack_require__(6);
 	var ChatInput = __webpack_require__(9);
-	var ChatContent = __webpack_require__(15);
+	var ChatContent = __webpack_require__(17);
 	var sajax = __webpack_require__(14);
+	var transport = __webpack_require__(13);
 
 	var ContainerChat = React.createClass({
 	  getInitialState: function() {
@@ -213,7 +214,7 @@
 	    });
 	  },
 	  pushMesssage: function (msg) {
-	    var newState = this.state.collections.concat([msg]);
+	    var newState = [msg].concat(this.state.collections);
 	    this.setState({
 	      collections: newState
 	    });
@@ -256,11 +257,13 @@
 	      "id": "123",
 	      "message": form.querySelector('[name="message"]').value,
 	      "user_id": "234",
-	      "others": true
+	      "others": false
 	    }
-	    console.log('this.props');
-	    console.log(this.props);
 	    this.props._pushMessage(message);
+	    this.reset(e.target);
+	  },
+	  reset: function (form) {
+	    form.querySelector('[name="message"]').value = ''
 	  },
 	  render: function () {
 	    var self = this;
@@ -364,6 +367,7 @@
 
 	'use strict';
 	var sajax = __webpack_require__(14);
+	var ssocket = __webpack_require__(15);
 	var privateprops = new WeakMap;
 	var Stransport = class Stransport {
 	  setMode (mode) {
@@ -422,8 +426,44 @@
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+	var $ = __webpack_require__(16);
+	const privateprops = new WeakMap();
+	var Ssocket = class Ssocket {
+	  constructor() {
+	    console.log("i'm created");
+	  }
+	  setSocket(socket) {
+	    privateprops.set(this, {
+	      $: socket
+	    });
+	  }
+	  getData(url) {
+	    let $ = privateprops.get(this).$;
+	    return $.ajax({
+	      url: url,
+	      dataType: 'json',
+	      cache: false
+	    });
+	  }
+	}
+	var implementedSajax = new Ssocket();
+	implementedSajax.setSocket($);
+	module.exports = implementedSajax;
+
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	module.exports = io;
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var React = __webpack_require__(1);
-	var Chatitem = __webpack_require__(16);
+	var Chatitem = __webpack_require__(18);
 	var Sajax = __webpack_require__(14);
 	var Chatcontent = React.createClass({
 	  render: function () {
@@ -436,14 +476,14 @@
 	    return React.createElement('div', {
 	      className: 'row list-chat'
 	    },
-	    React.createElement('div', null, list));
+	    list);
 	  }
 	});
 	module.exports = Chatcontent;
 
 
 /***/ },
-/* 16 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -462,12 +502,12 @@
 
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var Subheader = __webpack_require__(6);
-	var OnlineList = __webpack_require__(18);
+	var OnlineList = __webpack_require__(20);
 
 	var Containeronline = React.createClass({
 	  render: function () {
@@ -484,7 +524,7 @@
 
 
 /***/ },
-/* 18 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);

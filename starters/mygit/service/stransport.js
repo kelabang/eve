@@ -1,5 +1,6 @@
 'use strict';
 var sajax = require('sajax');
+var ssocket = require('ssocket');
 var privateprops = new WeakMap;
 var Stransport = class Stransport {
   setMode (mode) {

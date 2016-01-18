@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node run mygit-dev",
+    "start": "node main/index.js",
+    "debug": "node --debug-brk main/index.js",
     "gen": "node run mygit-gen",
     "mygit-dev": "http-serve -p 8080  ./starters/mygit",
     "mygit-gen": "webpack ./starters/mygit/components/app.js bundle.js"

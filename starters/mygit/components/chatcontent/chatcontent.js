@@ -12,7 +12,7 @@ var Chatcontent = React.createClass({
     return React.createElement('div', {
       className: 'row list-chat'
     },
-    React.createElement('div', null, list));
+    list);
   }
 });
 module.exports = Chatcontent;

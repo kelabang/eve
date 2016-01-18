@@ -3,6 +3,7 @@ var Subheader = require('subheader');
 var ChatInput = require('chatinput');
 var ChatContent = require('chatcontent');
 var sajax = require('sajax');
+var transport = require('stransport');
 
 var ContainerChat = React.createClass({
   getInitialState: function() {
@@ -13,16 +14,17 @@ var ContainerChat = React.createClass({
    },
   componentDidMount: function () {
     var self = this;
-    sajax.getData('http://127.0.0.1:8080/mockup/chat.json')
-    .success(function (data) {
-      if (self.isMounted()) {
-        self.setState({
-          collections: data
-        });
-      }
-    }.bind(this)).error(function (err){
-      console.log('error', err);
-    }.bind(this));
+    
+    // sajax.getData('http://127.0.0.1:8080/mockup/chat.json')
+    // .success(function (data) {
+    //   if (self.isMounted()) {
+    //     self.setState({
+    //       collections: data
+    //     });
+    //   }
+    // }.bind(this)).error(function (err){
+    //   console.log('error', err);
+    // }.bind(this));
   },
   setMessage: function (msg) {
     this.setState({
@@ -30,7 +32,7 @@ var ContainerChat = React.createClass({
     });
   },
   pushMesssage: function (msg) {
-    var newState = this.state.collections.concat([msg]);
+    var newState = [msg].concat(this.state.collections);
     this.setState({
       collections: newState
     });
@@ -44,8 +46,7 @@ var ContainerChat = React.createClass({
     React.createElement(ChatInput, {
       _pushMessage: function (msg) {
         self.pushMesssage(msg);
-      },
-      'message': 'sialan'
+      }
     }),
     React.createElement(ChatContent, {
       collections: self.state.collections

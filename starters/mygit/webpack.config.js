@@ -27,13 +27,15 @@ module.exports = {
       // service components
       'sajax': resolveRoot+'/service/sajax',
       'smessage': resolveRoot+'/service/smessage',
-      'stransport': resolveRoot+'/service/stransport'
+      'stransport': resolveRoot+'/service/stransport',
+      'ssocket': resolveRoot+'/service/ssocket'
     }
   },
   externals: {
     'react': 'React',
     'react-dom': 'ReactDOM',
-    'jquery': '$'
+    'jquery': '$',
+    'socket': 'io'
   },
   modulesDirectories: [
     'bower_components'

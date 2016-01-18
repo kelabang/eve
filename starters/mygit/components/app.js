@@ -10,7 +10,7 @@ var App = React.createClass({
     React.createElement(Container));
   }
 });
-console.log('>> ready')
+console.log('>> ready');
 ReactDOM.render(
   React.createElement(App, null),
   document.getElementById('app')

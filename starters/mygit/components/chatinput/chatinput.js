@@ -10,11 +10,13 @@ var ChatInput = React.createClass({
       "id": "123",
       "message": form.querySelector('[name="message"]').value,
       "user_id": "234",
-      "others": true
+      "others": false
     }
-    console.log('this.props');
-    console.log(this.props);
     this.props._pushMessage(message);
+    this.reset(e.target);
+  },
+  reset: function (form) {
+    form.querySelector('[name="message"]').value = ''
   },
   render: function () {
     var self = this;
